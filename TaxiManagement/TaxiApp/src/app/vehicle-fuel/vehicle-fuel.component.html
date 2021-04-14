@@ -1,0 +1,37 @@
+<div class="jumbotron py-3"> <h1 class="display-4 text-center">
+    VEHICLE FUEL
+ </h1></div>
+<div class="row">
+
+   
+    <div class="col-md-6">
+        <span>List of registration</span>
+        <table class="table">
+            <thead class="thead-ligth">
+              <tr>
+                  <th>Number</th>
+                  <th>Liter</th>
+                  <th>Price Per Liter</th>
+                  <th>Amount</th>
+                  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.fuelList">
+                    <td  >{{pd.vehicle.number}}</td>
+                    <td >{{pd.liter}}</td>
+                    <td >{{pd.pricePerLiter}}</td>
+                    <td >{{pd.finalAmount}}</td>
+                    <td >
+                        <i  class="far fa-trash-alt fa-lg text-danger" ></i>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <app-vehicle-registration-form></app-vehicle-registration-form>
+          </div>
+    </div>
+

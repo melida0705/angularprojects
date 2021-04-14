@@ -1,0 +1,27 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="vehicleId" [value]="service.formDataVR.registrationId" />
+    <div class="form-group">
+        <label>Date</label>
+        <kendo-datepicker class="form-control" name="lastRegistrationDate" #lastRegistrationDate="ngModel" [(ngModel)]="service.formDataVR.lastRegistrationDate" (valueChange)="handleChange($event)" ></kendo-datepicker>
+    </div>
+    <kendo-combobox class="form-control" [data]="this.service.list" [textField]="'number'"
+          [valueField]="'vehicleId'"
+          [placeholder]="'Select Vehicle...'"
+          (valueChange)="valueChange($event)"
+          [suggest]="true" 
+           [allowCustom]="allowCustom">
+        </kendo-combobox>
+
+
+    <div class="form-group">
+        <label>Price</label>
+        <input class="form-control form-control-lg" placeholder="price" name="price"
+            #price="ngModel" [(ngModel)]="service.formDataVR.price" required>
+    </div>
+
+
+
+    <div class="form-group mt-4 ">
+        <button class="btn btn-info btn-lg btn-block " type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>

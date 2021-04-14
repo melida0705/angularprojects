@@ -1,0 +1,42 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<div class="row">
+
+  <div class="col-sm-2 inline">
+<ul>
+ <li>
+  <a [routerLink]="''">Home</a>
+ </li> 
+ <li>
+  <a [routerLink]="'drivers'">Drivers</a>
+ </li> 
+ <li>
+  <a [routerLink]="'vehicles'">Vehicles</a>
+ </li> 
+ <li>
+  <a [routerLink]="'drivers/vehicles/receipts'">Receipts</a>
+ </li> 
+ <li>
+  <a [routerLink]="'vehicles/vehicleRegistration'">Registration</a>
+ </li> 
+ <li>
+  <a [routerLink]="'vehicles/vehicleFuel'">Fuel</a>
+ </li> 
+</ul>
+   
+  </div>
+<div class="col">
+  <kendo-breadcrumb (itemClick)="onItemClick($event)" [items]="items"></kendo-breadcrumb>
+
+  <router-outlet></router-outlet>
+</div>
+
+</div>
+ 

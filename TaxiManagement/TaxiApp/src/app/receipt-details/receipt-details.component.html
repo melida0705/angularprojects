@@ -1,0 +1,38 @@
+<div class="jumbotron py-3"> <h1 class="display-4 text-center">
+   RECEIPT
+ </h1></div>
+<div class="row">
+
+   
+    <div class="col-md-6">
+        <span>List of vehicles</span>
+        <table class="table">
+            <thead class="thead-ligth">
+              <tr>
+                  <th>Date</th>
+                
+                  <th>Vehicle Number</th>
+                  <th>Driver Name</th>
+                  <th>Total</th>
+                  <th>Advance Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td  >{{pd.date}}</td>
+                    <td  >{{pd.vehicle.number}}</td>
+                    <td >{{pd.driver.firstName}} {{pd.driver.lastName}}</td>
+                    <td  >{{pd.total}}</td>
+                    <td  >{{pd.advancePayment}}</td>
+                    <td >
+                        <i  class="far fa-trash-alt fa-lg text-danger"(click)="onDelete(pd.receiptId)" ></i>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <app-receipt-details-form></app-receipt-details-form>
+          </div>
+    </div>

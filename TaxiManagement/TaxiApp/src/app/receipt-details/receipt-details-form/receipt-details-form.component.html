@@ -1,0 +1,48 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="vehicleId" [value]="service.formData.vehicleId" />
+    <div class="form-group">
+        <kendo-datepicker class="form-control" [value]="service.formData.date" ></kendo-datepicker>
+    </div>
+   
+    <div class="form-group">
+        <label>Vehicle</label>
+        <!-- <select class="form-select form-select-lg mb-3" [(ngModel)]="selectedVehicle" name="vehicle">
+            <option value="" selected></option>
+            <option *ngFor="let car of vService.list" [value]="car.number">
+              {{car.number}}
+            </option>
+          </select> -->
+          <kendo-combobox class="form-control" [data]="this.vService.list" [textField]="'number'"
+          [valueField]="'vehicleId'"
+          [placeholder]="'Select Vehicle...'"
+          (valueChange)="valueChange($event)"
+          [suggest]="true" 
+           [allowCustom]="allowCustom">
+        </kendo-combobox>
+    </div>
+    <div class="form-group">
+        <label>Driver</label>
+       
+        <kendo-combobox class="form-control" [data]="this.dService.list" [textField]="'firstName'"
+        [valueField]="'driverId'"
+        [placeholder]="'Select Driver...'"
+        (valueChange)="valueChange1($event)"     
+        [suggest]="true" 
+         [allowCustom]="allowCustom">
+      </kendo-combobox>
+    </div>
+
+    <div class="form-group ">
+        <label>Total</label>
+        <input class="form-control form-control-lg" placeholder="Total" name="total"
+            #total="ngModel" [(ngModel)]="service.formData.total" required>
+    </div>
+    <div class="form-group ">
+        <label>Advance Payment</label>
+        <input class="form-control form-control-lg" placeholder="Advance Payment" name="advancePayment"
+            #advancePayment="ngModel" [(ngModel)]="service.formData.advancePayment" required>
+    </div>
+    <div class="form-group mt-4 ">
+        <button class="btn btn-info btn-lg btn-block " type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+</form>
